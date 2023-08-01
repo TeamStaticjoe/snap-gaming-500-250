@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="snap-gaming-500-250" content="width=500,height=250" />
+		<script type="text/javascript">
+			var clickTag = "https://www.qualcomm.com/de/snapdragon#gaming"
+		</script>
+
+		<style>
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+			}
+			.sd-gaming-500-250 {
+				width: 500px;
+				height: 250px;
+				background-color: #000;
+				overflow: hidden;
+				position: relative;
+				display: flex;
+			}
+
+			.top-text {
+				position: absolute;
+				z-index: 20;
+				top: 26px;
+				left: -182px;
+			}
+
+			.bottom-text {
+				position: absolute;
+				z-index: 20;
+				bottom: 24px;
+				right: -200px;
+			}
+
+			.lock-up {
+				position: absolute;
+				z-index: 20;
+				top: 300px;
+				right: 60px;
+			}
+
+			.button {
+				position: absolute;
+				z-index: 20;
+				bottom: 60px;
+				right: 84px;
+				opacity: 0;
+			}
+
+			.mat {
+				width: 500px;
+				height: 250px;
+				position: absolute;
+				z-index: 10;
+				transform: scale(230%) translateX(110px);
+			}
+			.image {
+				position: absolute;
+				z-index: 1;
+				transform: scale(135%) translate(45px, 15px);
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	</head>
+	<body>
+		<a
+			href="javascript:window.open(window.clickTag)"
+			class="sd-gaming-500-250"
+			width="500"
+			height="250"
+		>
+			<img class="top-text" src="assets/gaming-500-250-top-text.png" alt="" />
+			<img
+				class="bottom-text"
+				src="assets/gaming-500-250-bottom-text.png"
+				alt=""
+			/>
+			<img class="lock-up" src="assets/gaming-500-250-lock-up.png" alt="" />
+			<img class="button" src="assets/gaming-500-250-button.png" alt="" />
+			<img class="mat" src="assets/gaming-500-250-mat.png" alt="" />
+			<img class="image" src="assets/gaming-500-250-image.jpg" alt="" />
+		</a>
+	</body>
+	<script>
+		const sdGaming500x250Animate = () => {
+			const mat = document.querySelector(".sd-gaming-500-250 .mat")
+			const image = document.querySelector(".sd-gaming-500-250 .image")
+			const topText = document.querySelector(".sd-gaming-500-250 .top-text")
+			const bottomText = document.querySelector(
+				".sd-gaming-500-250 .bottom-text"
+			)
+			const lockUp = document.querySelector(".sd-gaming-500-250 .lock-up")
+			const button = document.querySelector(".sd-gaming-500-250 .button")
+
+			const tl = gsap.timeline()
+
+			tl.set(mat, { scaleX: "230%", scaleY: "230%", x: 260 })
+				.set(topText, { x: -170 })
+				.set(bottomText, { x: 970 })
+				.set(lockUp, { y: 300 })
+				.set(image, { x: 75, y: 15, scaleX: "145%", scaleY: "145%" })
+
+				.to(mat, {
+					x: 0,
+					y: 0,
+					scaleX: "100%",
+					scaleY: "100%",
+					duration: 1.5,
+					ease: "power4.in",
+				})
+				.to(
+					image,
+					{
+						x: 0,
+						y: 0,
+						scaleX: "100%",
+						scaleY: "100%",
+						duration: 1,
+						ease: "power1.in",
+					},
+					"<.75"
+				)
+				.to(topText, { x: 196, duration: 1, ease: "power1.inOut" }, "-=1")
+				.to(bottomText, { x: -436, duration: 1, ease: "power1.inOut" }, "<.125")
+				.to(
+					button,
+					{ autoAlpha: 1, duration: 0.5, ease: "power1.inOut" },
+					"<.75"
+				)
+				.to(lockUp, { y: -236, duration: 0.5, ease: "power1.inOut" }, "-=.65")
+		}
+		sdGaming500x250Animate()
+	</script>
+</html>
